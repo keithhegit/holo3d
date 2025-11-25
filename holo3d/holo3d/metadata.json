@@ -1,0 +1,7 @@
+{
+  "name": "HoloEarth",
+  "description": "A gesture-controlled 3D holographic Earth interface using MediaPipe and Three.js.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
