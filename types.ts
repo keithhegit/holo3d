@@ -27,3 +27,22 @@ export interface SharedState {
 }
 
 export type SharedStateRef = MutableRefObject<SharedState>;
+
+// POI (Point of Interest) types
+export interface POI {
+  id: string;
+  label: string;
+  lat: number;  // Latitude: -90 to 90
+  lon: number;  // Longitude: -180 to 180
+  url: string;
+  description?: string;
+}
+
+// Interaction mode
+export type InteractionMode = 'classic' | 'gesture';
+
+// Model selection
+export interface ModelData {
+  name: string;
+  url?: string;
+}

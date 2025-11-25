@@ -1,0 +1,136 @@
+/* POI Label Glassmorphism Styling */
+
+.poi-label {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Glassmorphism base */
+  background: rgba(0, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  
+  /* Border */
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 12px;
+  
+  /* Shadow */
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  
+  /* Layout */
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.poi-label:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* Active State */
+.poi-label.active {
+  background: rgba(0, 255, 255, 0.25);
+  border: 2px solid rgba(0, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 10px 16px;
+  transform: scale(1.15);
+  
+  /* Enhanced glow */
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.5),
+    0 0 40px rgba(0, 255, 255, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  
+  /* Pulsing animation */
+  animation: poi-pulse 2s ease-in-out infinite;
+}
+
+@keyframes poi-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(0, 255, 255, 0.5),
+      0 0 40px rgba(0, 255, 255, 0.3),
+      inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(0, 255, 255, 0.7),
+      0 0 60px rgba(0, 255, 255, 0.5),
+      inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Icon */
+.poi-icon {
+  font-size: 16px;
+  line-height: 1;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.8));
+}
+
+.poi-label.active .poi-icon {
+  font-size: 20px;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 255, 1));
+}
+
+/* Content (only shown when active) */
+.poi-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: #00ffff;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.poi-title {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+}
+
+.poi-description {
+  font-size: 11px;
+  opacity: 0.85;
+  color: rgba(0, 255, 255, 0.9);
+}
+
+/* Pointer events */
+.poi-label {
+  pointer-events: auto;
+}
+
+/* Focus styles for accessibility */
+.poi-label:focus {
+  outline: 2px solid rgba(0, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .poi-label {
+    padding: 5px 8px;
+  }
+  
+  .poi-label.active {
+    padding: 8px 12px;
+  }
+  
+  .poi-icon {
+    font-size: 14px;
+  }
+  
+  .poi-title {
+    font-size: 12px;
+  }
+  
+  .poi-description {
+    font-size: 10px;
+  }
+}

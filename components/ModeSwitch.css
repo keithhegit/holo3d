@@ -1,0 +1,101 @@
+/* Mode Switch Styling */
+
+.mode-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+
+    display: flex;
+    gap: 8px;
+
+    /* Glassmorphism container */
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 6px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.mode-button {
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 50px;
+
+    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: rgba(0, 255, 255, 0.6);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.mode-button:hover {
+    background: rgba(0, 255, 255, 0.1);
+    border-color: rgba(0, 255, 255, 0.4);
+    color: rgba(0, 255, 255, 0.9);
+}
+
+.mode-button.active {
+    background: rgba(0, 255, 255, 0.2);
+    border: 2px solid rgba(0, 255, 255, 0.8);
+    color: #00ffff;
+
+    box-shadow:
+        0 0 15px rgba(0, 255, 255, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.mode-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.mode-label {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .mode-switch {
+        top: 10px;
+        right: 10px;
+    }
+
+    .mode-button {
+        padding: 8px 12px;
+        gap: 6px;
+    }
+
+    .mode-icon {
+        font-size: 16px;
+    }
+
+    .mode-label {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mode-label {
+        display: none;
+    }
+
+    .mode-button {
+        padding: 10px;
+    }
+}

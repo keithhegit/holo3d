@@ -1,0 +1,137 @@
+/* Explore Button Styling */
+
+.explore-button {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+
+    /* Glassmorphism */
+    background: rgba(0, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    /* Border */
+    border: 2px solid rgba(0, 255, 255, 0.6);
+    border-radius: 50px;
+
+    /* Layout */
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    /* Typography */
+    color: #00ffff;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    /* Interaction */
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Shadow */
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 255, 255, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.explore-button:hover:not(.disabled) {
+    background: rgba(0, 255, 255, 0.3);
+    border-color: #00ffff;
+    transform: translateX(-50%) scale(1.05);
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.5),
+        0 0 50px rgba(0, 255, 255, 0.6),
+        inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
+
+.explore-button:active:not(.disabled) {
+    transform: translateX(-50%) scale(0.98);
+}
+
+/* Disabled State */
+.explore-button.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: rgba(0, 255, 255, 0.3);
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+/* Icon */
+.explore-icon {
+    font-size: 24px;
+    line-height: 1;
+    filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.8));
+}
+
+.explore-text {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    white-space: nowrap;
+}
+
+.explore-arrow {
+    font-size: 24px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.explore-button:hover:not(.disabled) .explore-arrow {
+    transform: translateX(4px);
+}
+
+/* Pulsing animation for active state */
+.explore-button:not(.disabled) {
+    animation: explore-pulse 3s ease-in-out infinite;
+}
+
+@keyframes explore-pulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.4),
+            0 0 30px rgba(0, 255, 255, 0.3),
+            inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    }
+
+    50% {
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.4),
+            0 0 45px rgba(0, 255, 255, 0.5),
+            inset 0 1px 2px rgba(255, 255, 255, 0.15);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .explore-button {
+        bottom: 20px;
+        padding: 12px 32px;
+        font-size: 14px;
+    }
+
+    .explore-icon,
+    .explore-arrow {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .explore-button {
+        padding: 10px 24px;
+        font-size: 12px;
+    }
+
+    .explore-text {
+        display: none;
+    }
+}
